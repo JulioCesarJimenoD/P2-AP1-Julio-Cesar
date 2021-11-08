@@ -1,0 +1,57 @@
+﻿<Window x:Class="P2_AP1_Julio_Cesar.UI.Consultas.cRegistroTarea"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P2_AP1_Julio_Cesar.UI.Consultas"
+        mc:Ignorable="d"
+        Title="cRegistroTarea" Height="446" Width="650">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel>
+                    <Label Content="Desde"/>
+                    <DatePicker x:Name="DesdeDatePicker"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="5,0">
+                    <Label Content="Hasta" />
+                    <DatePicker x:Name="HastaDatePicker"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro:" />
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="Proyecto Id"/>
+                        <ComboBoxItem Content="Descripción del Proyecto"/>
+                        <ComboBoxItem Content="Total de minutos"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <Label Content="Critero:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                </StackPanel>
+                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="Buscar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" >
+                <StackPanel Orientation="Vertical">
+                    <Label Content=" " />
+                    </StackPanel>
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="500" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Proyecto Id" Binding="{Binding ProyectoId}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
+                        <DataGridTextColumn Header="Descripción" Binding="{Binding DescripcionProyecto}"/>
+                        <DataGridTextColumn Header="Total de Horas" Binding="{Binding Total}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>        
+    </Grid>
+</Window>

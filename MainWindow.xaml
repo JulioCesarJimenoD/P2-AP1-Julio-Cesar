@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Menu Height="25">
+                <MenuItem Header="Registros">
+                    <MenuItem x:Name="ProyectosMenuItem" Header="Registro de Proyectos" Click="ProyectosMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Consultas">
+                    <MenuItem x:Name="TiposTareasMenuItem" Header="Consulta de Tipos de Tareas" Click="TiposTareasMenuItem_Click"/>
+                    <MenuItem x:Name="ProyectoCMenuItem" Header="Consulta de Proyectos" Click="ProyectoCMenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
 
     </Grid>
 </Window>

@@ -83,9 +83,9 @@ namespace P2_AP1_Julio_Cesar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] basura___copia {
+        internal static byte[] buscar {
             get {
-                object obj = ResourceManager.GetObject("basura___copia", resourceCulture);
+                object obj = ResourceManager.GetObject("buscar", resourceCulture);
                 return ((byte[])(obj));
             }
         }

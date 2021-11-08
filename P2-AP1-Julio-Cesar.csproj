@@ -9,12 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
+    <None Remove="Resources\agregar.png" />
+    <None Remove="Resources\basura.png" />
+    <None Remove="Resources\buscar.png" />
+    <None Remove="Resources\disco.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\agregar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\basura.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\disco.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DATA\" />
-    <Folder Include="Entidades\" />
-    <Folder Include="UI\Consultas\" />
-    <Folder Include="UI\Registro\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +37,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\buscar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

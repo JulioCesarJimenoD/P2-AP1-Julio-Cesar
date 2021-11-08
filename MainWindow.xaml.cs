@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P2_AP1_Julio_Cesar.UI.Consultas;
+using P2_AP1_Julio_Cesar.UI.Registro;
 
 namespace P2_AP1_Julio_Cesar
 {
@@ -23,6 +25,25 @@ namespace P2_AP1_Julio_Cesar
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ProyectosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rRegistroTarea proyecto = new rRegistroTarea();
+            proyecto.Show();
+        }
+
+        private void TiposTareasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cTiposTarea tarea = new cTiposTarea();
+            tarea.Show();
+        }
+
+        private void ProyectoCMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cRegistroTarea registroTarea = new cRegistroTarea();
+            registroTarea.Show();
+
         }
     }
 }
