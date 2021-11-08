@@ -24,10 +24,10 @@
 
             <StackPanel>
                 <Label Content="Fecha" Margin="20,0,0,0"/>
-                <DatePicker Width="200" HorizontalAlignment="Left" Margin="20,0,0,0" SelectedDate="{Binding Fecha}"/>
+                <DatePicker Width="200" HorizontalAlignment="Left" Margin="20,0,0,0" SelectedDate="{ Fecha}"/>
 
                 <Label Content="Descripcion" Margin="20,10,0,0"/>
-                <TextBox x:Name="DescripcionTextBox" Height="40" Margin="20,0,20,0" Text="{Binding DescripcionProyecto}"/>
+                <TextBox x:Name="DescripcionTextBox" Height="40" Margin="20,0,20,0" Text="{ DescripcionProyecto}"/>
             </StackPanel>
 
             <StackPanel Margin="10,10,10,0">
@@ -37,17 +37,17 @@
                         <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
                             <StackPanel Margin="0,0,10,0">
                                 <Label Content="Tipo de Tarea"/>
-                                <ComboBox x:Name="TipoTareaComboBox" Width="150" SelectedValue="{Binding TiposTareas.TipoTareaId}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                                <ComboBox x:Name="TipoTareaComboBox" Width="150" SelectedValue="{ TiposTareas.TipoTareaId}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,10,0">
                                 <Label Content="Requerimiento de la tarea"/>
-                                <TextBox x:Name="RequerimientoTextBox" Text="{Binding Detalle.Requerimiento}" Width="200" Margin="5,0"/>
+                                <TextBox x:Name="RequerimientoTextBox" Text="{Detalle.Requerimiento}" Width="200" Margin="5,0"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,10,0">
                                 <Label Content="Tiempo (Minutos)" />
-                                <TextBox x:Name="TiempoTextBox" Width="130" Margin="5,0" Text="{Binding Detalle.Tiempo}"/>
+                                <TextBox x:Name="TiempoTextBox" Width="130" Margin="5,0" Text="{Detalle.Tiempo}"/>
                             </StackPanel>
 
                             <StackPanel Margin="10,12,0,0">
@@ -70,12 +70,12 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <DataGrid x:Name="DetalleDataGrid" Height="80" Width="600" ItemsSource="{Binding Detalle}"  HorizontalAlignment="Left" Margin="15,5,0,0" AutoGenerateColumns="False" >
+                            <DataGrid x:Name="DetalleDataGrid" Height="80" Width="600" ItemsSource="{ Detalle}"  HorizontalAlignment="Left" Margin="15,5,0,0" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Tipo Id" Width="100" Binding="{Binding TiposTarea.TipoTareaId}"/>
-                                    <DataGridTextColumn Header="Tipo Tarea" Width="130" Binding="{Binding TiposTarea.DescripcionTipoTarea}"/>
-                                    <DataGridTextColumn Header="Requerimiento" Width="150" Binding="{Binding Requerimiento}"/>
-                                    <DataGridTextColumn Header="Tiempo " Width="130" Binding="{Binding Tiempo}"/>
+                                    <DataGridTextColumn Header="Tipo Id" Width="100" Binding="{TiposTarea.TipoTareaId}"/>
+                                    <DataGridTextColumn Header="Tipo Tarea" Width="130" Binding="{ TiposTarea.DescripcionTipoTarea}"/>
+                                    <DataGridTextColumn Header="Requerimiento" Width="150" Binding="{ Requerimiento}"/>
+                                    <DataGridTextColumn Header="Tiempo " Width="130" Binding="{Tiempo}"/>
                                 </DataGrid.Columns>
 
                             </DataGrid>
