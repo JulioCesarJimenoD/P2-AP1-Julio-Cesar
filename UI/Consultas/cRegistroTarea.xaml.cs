@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using P2_AP1_Julio_Cesar.BLL;
+using P2_AP1_Julio_Cesar.Entidades;
 
 namespace P2_AP1_Julio_Cesar.UI.Consultas
 {
@@ -26,6 +28,20 @@ namespace P2_AP1_Julio_Cesar.UI.Consultas
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var listado = new List<Proyectos>();
+            if (CriterioTextBox.Text.Trim().Length>0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0:
+                        if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && )
+                        }
+                            break;
+
+                }
+            }
 
         }
     }
