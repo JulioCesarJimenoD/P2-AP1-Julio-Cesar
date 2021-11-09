@@ -25,6 +25,7 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
     {
         private Proyectos proyecto = new Proyectos();
         public ProyectosDetalle detalle = new ProyectosDetalle();
+
         public rRegistroTarea()
         {
             InitializeComponent();

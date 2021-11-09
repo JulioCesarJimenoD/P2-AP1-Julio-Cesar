@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P2_AP1_Julio_Cesar.BLL;
+using P2_AP1_Julio_Cesar.Entidades;
 
 namespace P2_AP1_Julio_Cesar.Entidades
 {
@@ -22,16 +24,25 @@ namespace P2_AP1_Julio_Cesar.Entidades
         public TiposTareas TiposTareas { get; set; }
         public Proyectos proyecto { get; set; }
 
-        public ProyectosDetalle(int v)
+        public ProyectosDetalle()
         {
             Id = 0;
             ProyectoId = 0;
             TipoTareaId = 0;
-            Tiempo = 0;
             Requerimiento = string.Empty;
+            Tiempo = 0;
             TiposTareas = null;
-            proyecto = null;
+            Proyecto = null;
         }
-
+        public ProyectosDetalle(int proy, int tipo, string req, int tiempo, TiposTareas tarea, Proyectos proyect)
+        {
+            Id = 0;
+            ProyectoId = proy;
+            TipoTareaId = tipo;
+            Requerimiento = req;
+            Tiempo = tiempo;
+            TiposTareas = tarea;
+            Proyectos = proyect;
+        }
     }
 }
