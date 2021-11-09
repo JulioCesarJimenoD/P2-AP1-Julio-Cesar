@@ -178,22 +178,23 @@ namespace P2_AP1_Julio_Cesar.BLL
 
         public static List<Proyectos> GetList(Expression<Func<Proyectos, bool>> criterio)
         {
-            List<Proyectos> Lis = new List<Proyectos>();
+            List<Proyectos> Lista = new List<Proyectos>();
             Contexto contexto = new Contexto();
 
             try
             {
-                Lis = contexto.Proyectos.Where(criterio).ToList();
+                //obtener la lista y filtrarla según el criterio recibido por parametro.
+                Lista = contexto.Proyectos.Where(criterio).ToList();
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
+            return Lista;
         }
 
 
