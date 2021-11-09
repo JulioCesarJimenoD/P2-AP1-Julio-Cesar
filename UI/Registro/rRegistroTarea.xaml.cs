@@ -24,8 +24,7 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
 
     {
         private Proyectos proyecto = new Proyectos();
-        public ProyectosDetalle detalle = new ProyectosDetalle();
-
+        private ProyectosDetalle detalles = new ProyectosDetalle();
         public rRegistroTarea()
         {
             InitializeComponent();
@@ -33,10 +32,11 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
 
             TipoTareaComboBox.ItemsSource = TiposTareasBLL.GetTiposTarea();
             TipoTareaComboBox.SelectedValuePath = "TipoTareaId";
-            TipoTareaComboBox.DisplayMemberPath = "DescripcionTipoTarea";
+            TipoTareaComboBox.DisplayMemberPath = "DecripcionTipoTarea ";
 
             TotalTextBox.Text = "0";
         }
+
         private void Cargar()
         {
             this.DataContext = null;
@@ -47,12 +47,14 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
             this.proyecto = new Proyectos();
             this.DataContext = proyecto;
         }
-        private bool ExisteEnLaBaseDeDatos()
+
+        private bool ExisteEnLaBD()
         {
             Proyectos esValido = ProyectoBLL.Buscar(proyecto.ProyectoId);
-
             return (esValido != null);
         }
+
+
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             Proyectos encontrado = ProyectoBLL.Buscar(proyecto.ProyectoId);
@@ -65,18 +67,18 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
             else
             {
                 Limpiar();
-                MessageBox.Show("Proyecto no existe en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("El proyecto no existe en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
             proyecto.Detalle.Add(new ProyectosDetalle(Convert.ToInt32(ProyectoIdTextBox.Text), (int)TipoTareaComboBox.SelectedValue,
-                 RequerimientoTextBox.Text, int.Parse(TiempoTextBox.Text), (TiposTareas)TipoTareaComboBox.SelectedItem, proyecto));
+                RequerimientoTextBox.Text, int.Parse(TiempoTextBox.Text), (TiposTareas)TipoTareaComboBox.SelectedItem, proyecto));
 
             TotalTextBox.Text = proyecto.Total.ToString();
-            Cargar();
 
+            Cargar();
 
             TotalTextBox.Focus();
             TotalTextBox.Clear();
@@ -107,24 +109,25 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
             }
             else
             {
-                if (ExisteEnLaBaseDeDatos())
+                if (ExisteEnLaBD())
                 {
                     paso = ProyectoBLL.Guardar(proyecto);
                 }
                 else
                 {
-                    MessageBox.Show("No existe en la base de datos", "ERROR");
+                    MessageBox.Show("No existe en la base de datos", "Error");
                 }
             }
 
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("Guardado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("¡Guardado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Fallo al guardar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
-
+            {
+                MessageBox.Show("¡Fallo al guardar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -133,15 +136,21 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
 
             if (existe == null)
             {
-                MessageBox.Show("No existe el grupo en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No existe el proyecto en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else
             {
                 ProyectoBLL.Eliminar(proyecto.ProyectoId);
-                MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("¡Eliminado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
         }
+
+
+
+
     }
+
 }
+

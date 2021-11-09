@@ -15,7 +15,7 @@ namespace P2_AP1_Julio_Cesar.DAL
 
         protected override void  OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = DATA\Db2Parcialdb");
+            optionsBuilder.UseSqlite(@"Data Source = DATA\Db2Parcial.db");
         }
 
         protected override  void OnModelCreating (ModelBuilder modelBuilder)

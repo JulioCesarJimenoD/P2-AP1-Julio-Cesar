@@ -36,21 +36,22 @@ namespace P2_AP1_Julio_Cesar.UI.Consultas
                     case 0:
                         if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
                         {
-                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date <= HastaDatePicker.SelectedDate && a.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                            listado = ProyectoBLL.GetList(e => e.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && e.Fecha.Date <= HastaDatePicker.SelectedDate && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
                         }
                         else if (HastaDatePicker.SelectedDate != null)
                         {
-                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date <= HastaDatePicker.SelectedDate);
+                            listado = ProyectoBLL.GetList(e => e.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && e.Fecha.Date <= HastaDatePicker.SelectedDate);
                         }
                         else if (DesdeDatePicker.SelectedDate != null)
                         {
-                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                            listado = ProyectoBLL.GetList(e => e.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
                         }
                         else
                         {
-                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = ProyectoBLL.GetList(e => e.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
-                            break;
+
+                        break;
 
                     case 1:
                         if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)

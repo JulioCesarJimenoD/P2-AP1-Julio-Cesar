@@ -9,7 +9,7 @@ using P2_AP1_Julio_Cesar.DAL;
 namespace P2_AP1_Julio_Cesar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211109011322_inicial")]
+    [Migration("20211109014050_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

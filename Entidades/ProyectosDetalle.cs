@@ -32,7 +32,7 @@ namespace P2_AP1_Julio_Cesar.Entidades
             Requerimiento = string.Empty;
             Tiempo = 0;
             TiposTareas = null;
-            Proyecto = null;
+            proyecto = null;
         }
         public ProyectosDetalle(int proy, int tipo, string req, int tiempo, TiposTareas tarea, Proyectos proyect)
         {
@@ -42,7 +42,7 @@ namespace P2_AP1_Julio_Cesar.Entidades
             Requerimiento = req;
             Tiempo = tiempo;
             TiposTareas = tarea;
-            Proyectos = proyect;
+            proyecto = proyect;
         }
     }
 }

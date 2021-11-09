@@ -15,7 +15,6 @@
                     <TextBox x:Name="ProyectoIdTextBox" Width="130" Text="{Binding ProyectoId}" HorizontalAlignment="Left" Margin="10,0,0,0" Height="20"/>
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click">
                         <StackPanel Orientation='Horizontal'>
-                            <Image Source="/Resources/basura.png" Width="30" />
                             <Label Content="Buscar"/>
                         </StackPanel>
                     </Button>
@@ -24,10 +23,10 @@
 
             <StackPanel>
                 <Label Content="Fecha" Margin="20,0,0,0"/>
-                <DatePicker Width="200" HorizontalAlignment="Left" Margin="20,0,0,0" SelectedDate="{Binding Fecha}"/>
+                <DatePicker Width="150" HorizontalAlignment="Left" Margin="20,0,0,0" SelectedDate="{Binding Fecha}"/>
 
                 <Label Content="Descripcion" Margin="20,10,0,0"/>
-                <TextBox x:Name="DescripcionTextBox" Height="40" Margin="20,0,20,0" Text="{Binding DescripcionProyecto}"/>
+                <TextBox x:Name="DescripcionTextBox" Height="50" Margin="20,0,20,0" Text="{Binding DescripcionProyecto}"/>
             </StackPanel>
 
             <StackPanel Margin="10,10,10,0">
@@ -37,7 +36,7 @@
                         <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
                             <StackPanel Margin="0,0,10,0">
                                 <Label Content="Tipo de Tarea"/>
-                                <ComboBox x:Name="TipoTareaComboBox" Width="150" SelectedValue="{Binding TiposTareas.TipoTareaId}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                                <ComboBox x:Name="TipoTareaComboBox" Width="150" SelectedValue="{Binding TiposTarea.TipoTareaId}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,10,0">
@@ -53,7 +52,6 @@
                             <StackPanel Margin="10,12,0,0">
                                 <Button x:Name="AgregarButton" Click="AgregarButton_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="/Resources/agregar.png" Width="30" />
                                         <Label Content="Agregar Fila"/>
                                     </StackPanel>
                                 </Button>
@@ -61,7 +59,6 @@
                             <StackPanel Margin="10,12,0,0">
                                 <Button x:Name="RemoverFilaButton" Click="RemoverFilaButton_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="/Resources/basura.png" Width="30" />
                                         <Label Content="Remover Fila"/>
                                     </StackPanel>
                                 </Button>
@@ -90,31 +87,26 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="Tiempo Total"/>
-                <TextBox x:Name="TotalTextBox" Text="{Binding Total}" IsReadOnly="True" Width="120" Height="20"/>
+                <TextBox x:Name="TotalTextBox" Text="{Binding Total}" IsReadOnly="True" Width="120" Height="20" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="NuevoButton" Margin="0,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/agregar.png" Width="30" />
-
                         <Label Content="Nuevo" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="GuardarButton" Margin="10,0" Click="GuardarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/disco.png" Width="30"/>
-
                         <Label Content="Guardar" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="EliminarButton" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton"  Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/basura.png"  Width="30"/>
+
                         <Label Content="Eliminar" />
                     </StackPanel>
                 </Button>
-
 
 
             </StackPanel>
