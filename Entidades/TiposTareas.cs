@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace P2_AP1_Julio_Cesar.Entidades
 {
-    public class TiposTareas
+   public class TiposTareas
     {
         [Key]
         public int TipoTareaId { get; set; }

@@ -17,12 +17,12 @@ namespace P2_AP1_Julio_Cesar.Entidades
         public int ProyectoId { get; set; }
         public string Requerimiento { get; set; }
         public int Tiempo { get; set; }
-    
+
         [ForeignKey("TipoTareaId")]
         public TiposTareas TiposTareas { get; set; }
         public Proyectos proyecto { get; set; }
 
-        public ProyectosDetalle()
+        public ProyectosDetalle(int v)
         {
             Id = 0;
             ProyectoId = 0;
@@ -32,9 +32,6 @@ namespace P2_AP1_Julio_Cesar.Entidades
             TiposTareas = null;
             proyecto = null;
         }
-       
 
     }
-
-
 }

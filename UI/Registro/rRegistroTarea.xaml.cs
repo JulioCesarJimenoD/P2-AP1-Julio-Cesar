@@ -24,7 +24,7 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
 
     {
         private Proyectos proyecto = new Proyectos();
-        private ProyectosDetalle detalles = new ProyectosDetalle();
+        public ProyectosDetalle detalle = new ProyectosDetalle();
         public rRegistroTarea()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace P2_AP1_Julio_Cesar.UI.Registro
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            proyecto.Detalle.Add(new ProyectosDetalle (Convert.ToInt32(ProyectoIdTextBox.Text), (int)TipoTareaComboBox.SelectedValue,
+            proyecto.Detalle.Add(new ProyectosDetalle(Convert.ToInt32(ProyectoIdTextBox.Text), (int)TipoTareaComboBox.SelectedValue,
                  RequerimientoTextBox.Text, int.Parse(TiempoTextBox.Text), (TiposTareas)TipoTareaComboBox.SelectedItem, proyecto));
 
             TotalTextBox.Text = proyecto.Total.ToString();

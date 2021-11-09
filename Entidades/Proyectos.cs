@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace P2_AP1_Julio_Cesar.Entidades
 {
-   public class Proyectos
+    public class Proyectos
     {
         [Key]
         public int ProyectoId { get; set; }
@@ -18,6 +18,5 @@ namespace P2_AP1_Julio_Cesar.Entidades
 
         [ForeignKey("ProyectoId")]
         public virtual List<ProyectosDetalle> Detalle { get; set; } = new List<ProyectosDetalle>();
-
     }
 }
