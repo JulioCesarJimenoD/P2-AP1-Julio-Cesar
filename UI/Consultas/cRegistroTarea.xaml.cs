@@ -94,7 +94,7 @@ namespace P2_AP1_Julio_Cesar.UI.Consultas
 
             else
             {
-                listado = .GetList(e => true);
+                listado = ProyectoBLL.GetList(e => true);
             }
 
             if (DesdeDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
