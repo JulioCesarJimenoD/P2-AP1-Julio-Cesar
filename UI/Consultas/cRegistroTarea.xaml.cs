@@ -36,12 +36,84 @@ namespace P2_AP1_Julio_Cesar.UI.Consultas
                     case 0:
                         if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
                         {
-                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && )
+                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date <= HastaDatePicker.SelectedDate && a.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else if (HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date <= HastaDatePicker.SelectedDate);
+                        }
+                        else if (DesdeDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text) && a.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else
+                        {
+                            listado = ProyectoBLL.GetList(a => a.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
                             break;
 
+                    case 1:
+                        if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.DecripcionProyecto.Contains(CriterioTextBox.Text.ToLower()) && e.Fecha.Date <= HastaDatePicker.SelectedDate && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else if (HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.DecripcionProyecto.Contains(CriterioTextBox.Text.ToLower()) && e.Fecha.Date <= HastaDatePicker.SelectedDate);
+                        }
+                        else if (DesdeDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.DecripcionProyecto.Contains(CriterioTextBox.Text.ToLower()) && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else
+                        {
+                            listado = ProyectoBLL.GetList(e => e.DecripcionProyecto.Contains(CriterioTextBox.Text.ToLower()));
+                        }
+                        break;
+
+                    case 2: 
+                        if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.Total.Equals(int.Parse(CriterioTextBox.Text)) && e.Fecha.Date <= HastaDatePicker.SelectedDate && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else if (HastaDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.Total.Equals(int.Parse(CriterioTextBox.Text)) && e.Fecha.Date <= HastaDatePicker.SelectedDate);
+                        }
+                        else if (DesdeDatePicker.SelectedDate != null)
+                        {
+                            listado = ProyectoBLL.GetList(e => e.Total.Equals(int.Parse(CriterioTextBox.Text)) && e.Fecha.Date >= DesdeDatePicker.SelectedDate);
+                        }
+                        else
+                        {
+                            listado = ProyectoBLL.GetList(e => e.Total.Equals(int.Parse(CriterioTextBox.Text)));
+                        }
+                        break;
                 }
             }
+
+            else
+            {
+                listado = .GetList(e => true);
+            }
+
+            if (DesdeDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
+            {
+                listado = ProyectoBLL.GetList(c => c.Fecha.Date >= DesdeDatePicker.SelectedDate);
+            }
+
+            if (HastaDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
+            {
+                listado = ProyectoBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+            }
+
+            if (DesdeDatePicker.SelectedDate != null && HastaDatePicker.SelectedDate != null && FiltroComboBox.SelectedIndex < 0)
+            {
+                listado = ProyectoBLL.GetList(c => c.Fecha.Date >= DesdeDatePicker.SelectedDate && c.Fecha.Date <= HastaDatePicker.SelectedDate);
+            }
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
 
         }
     }
